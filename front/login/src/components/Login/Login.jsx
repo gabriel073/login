@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "../../login.css";
+import Home from "../Home.jsx";
 
 function Login() {
 
     const [password, setPassword] = useState('');
     const [username, setUserName] = useState('');
-
+    const [loginSuccessful, setLoginSuccessful] = useState(false);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -23,6 +24,15 @@ function Login() {
         })
             .then(response => response.json())
             .then(result => {
+                console.log(result.token)
+
+                if (result.token) {
+                    localStorage.setItem('token', result.token)
+                    setLoginSuccessful(true);
+
+                } else {
+                    setLoginSuccessful(false);
+                }
                 console.log(result)
 
             })
@@ -34,20 +44,22 @@ function Login() {
 
     return (
         <>
-            <h1>Login</h1>
-            <div className="form">
-                <form>
-                    <label >Username:</label>
-                    <input onChange={(e) => { setUserName(e.target.value) }} placeholder="username" type="text" />
+            {loginSuccessful ? <Home /> : <div className="custom-form">
+                <h1>Login</h1>
+                <div className="form">
+                    <form>
+                        <label >Username:</label>
+                        <input onChange={(e) => { setUserName(e.target.value) }} placeholder="username@mail.com" type="text" />
 
-                    <label >Password:</label>
-                    <input onChange={(e) => { setPassword(e.target.value) }} placeholder="password" type="password" />
+                        <label >Password:</label>
+                        <input onChange={(e) => { setPassword(e.target.value) }} placeholder="xxxxxxxxx" type="password" />
 
-                    <button onClick={handleLogin}>Login</button>
-                </form>
-            </div>
+                        <button onClick={handleLogin}>Login</button>
+                    </form>
+                </div>
+            </div>}
         </>
-    )
+    );
 }
 
-export default Login
+export default Login;
