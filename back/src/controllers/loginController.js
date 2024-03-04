@@ -1,20 +1,25 @@
-const connection = require('../models/db')
+const connection = require('../models/db.js')
 
 
 module.exports.login = (req, res) => {
-    const { username, password } = req.body;
-
-
     try {
-        connection.query(consult, [username, password], (err, result) => {
-            if (err) {
-                res.send(err);
-            }
+        const { user } = req.body;
+        console.log('User: ', user);
 
-
-        })
-    } catch (e) {
-
+    } catch (error) {
+        console.log(error)
     }
+
+    // try {
+    //     connection.query(consult, [username, password], (err, result) => {
+    //         if (err) {
+    //             res.send(err);
+    //         }
+
+
+    //     })
+    // } catch (e) {
+
+    // } 
 
 }

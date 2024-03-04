@@ -1,3 +1,17 @@
+const connection = require('../models/db')
+
 module.exports.ping = (req, res) => {
-    res.send('this is a ping Test....')
+    const consult = 'SELECT * FROM login';
+
+    try {
+        connection.query(consult, (err, results) => {
+            console.log(results)
+        })
+    } catch (error) {
+
+    }
+
+
 }
+
+
