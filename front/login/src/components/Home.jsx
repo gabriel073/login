@@ -1,6 +1,17 @@
+// import Swal from 'sweetalert2'
+
 const Home = () => {
     return (
-        <div>...User logged!!...</div>
+        <>
+            <h1>User Logued....</h1>
+
+
+            {
+                alert("User Loged...!!")
+            }
+
+        </>
+
     );
 }
 

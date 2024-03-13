@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "../../Login.css";
 import Home from "../Home.jsx";
-// import Swal from 'sweetalert2';
 
+import Swal from 'sweetalert2';
 function Login() {
 
     const [username, setUserName] = useState('');
@@ -27,15 +27,9 @@ function Login() {
         })
             .then(response => response.json())
             .then(result => {
-                console.log(result.token)
-                // if (setUserName != username) {
-                //     Swal.fire({
-                //         icon: "error",
-                //         title: "Error",
-                //         text: "User o Password Ingresados, Incorrectos!",
 
-                //     });
-                // }
+                console.log(result.token)
+
 
                 if (result.token) {
                     localStorage.setItem('token', result.token)
@@ -43,7 +37,14 @@ function Login() {
 
                 } else {
                     setLoginSuccessful(false);
+                    if (setUserName != username) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: "User o Password Ingresados, Incorrectos!",
 
+                        });
+                    }
                 }
 
             })
@@ -76,14 +77,14 @@ function Login() {
                     <h2>Login</h2>
                     <form>
                         <div className='user-box'>
-                            <input onChange={(e) => { setUserName(e.target.value) }} name="" required="" type="text" />
+                            <input onChange={(e) => { setUserName(e.target.value) }} name="" required="Ingresa un username" type="text" />
                             <div className='danger'>
                                 {userNameError && <p>{userNameError}</p>}
                             </div>
                             <label>Username</label>
                         </div>
                         <div className='user-box'>
-                            <input onChange={(e) => { setPassword(e.target.value) }} name="" required="" type="password" />
+                            <input onChange={(e) => { setPassword(e.target.value) }} name="" required="Ingresa una pass" type="password" />
                             <div className='danger'>
                                 {passwordError && <p>{passwordError}</p>}
                             </div>
