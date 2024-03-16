@@ -27,9 +27,7 @@ function Login() {
         })
             .then(response => response.json())
             .then(result => {
-
                 console.log(result.token)
-
 
                 if (result.token) {
                     localStorage.setItem('token', result.token)
@@ -63,12 +61,7 @@ function Login() {
         else {
             return setUserNameError(false), setPasswordError(false);
         }
-
-
-
     }
-
-
 
     return (
         <div >

@@ -6,9 +6,6 @@ module.exports.login = (req, res) => {
 
     const { username, password } = req.body;
 
-
-
-
     const consult = 'SELECT * FROM login WHERE username = ? AND password = ?';
     try {
         connection.query(consult, [username, password], (err, result) => {
@@ -27,6 +24,6 @@ module.exports.login = (req, res) => {
             }
         })
     } catch (e) {
-
+        console.log(e)
     }
 }

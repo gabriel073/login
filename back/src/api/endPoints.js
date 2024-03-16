@@ -4,6 +4,7 @@ const { ping } = require('../controllers/pingController.js');
 const { login } = require('../controllers/loginController.js');
 
 router.get('/ping', ping);
+
 router.post('/login', login);
 
 

@@ -9,7 +9,7 @@ module.exports.ping = (req, res) => {
             res.send(results)
         })
     } catch (error) {
-
+        console.log(error)
     }
 
 
