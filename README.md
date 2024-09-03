@@ -1,7 +1,7 @@
 # Formulario Login con JWT 🔐
 
 ##
-![Screenshot del Login](https://i.ibb.co/VDy2Wj1/login.png)
+![Screenshot del Login](https://drive.google.com/file/d/1RCqGsvRuVx2LySBBfc23_90nPjf2ZuiN/view?usp=sharing)
 
 ##
 [Link del video Demo](https://www.youtube.com/watch?v=999Ktv3dUWk)
